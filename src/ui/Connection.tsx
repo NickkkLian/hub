@@ -12,12 +12,14 @@ interface Props {
 
 export function Connection({ initial, onConnected }: Props) {
   const [owner, setOwner] = useState(initial.owner);
+  const [repo, setRepo] = useState(initial.repo || "Database");
   const [token, setToken] = useState(initial.token);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ kind: string; text: string }>({ kind: "", text: "" });
 
   async function connect() {
     const o = owner.trim();
+    const r = repo.trim() || "Database";
     const t = token.trim();
     if (!o || !t) {
       setMsg({ kind: "err", text: "请填写 Owner 和 Token" });
@@ -31,13 +33,13 @@ export function Connection({ initial, onConnected }: Props) {
       setMsg({ kind: "err", text: res.error || "校验失败" });
       return;
     }
-    saveConfig({ owner: o, token: t });
+    saveConfig({ owner: o, repo: r, token: t });
     if (res.warning) {
       setMsg({ kind: "warn", text: res.warning + " 已保存，仍可继续。" });
     } else {
       setMsg({ kind: "ok", text: "令牌有效 ✓ 已保存，各 app 现在共用它。" });
     }
-    onConnected({ owner: o, token: t });
+    onConnected({ owner: o, repo: r, token: t });
   }
 
   function forget() {
@@ -64,6 +66,16 @@ export function Connection({ initial, onConnected }: Props) {
           autocapitalize="off"
           autocorrect="off"
           onInput={(e) => setOwner((e.target as HTMLInputElement).value)}
+        />
+
+        <label class="mono">Repo（数据仓库名 · 一般不用改）</label>
+        <input
+          type="text"
+          value={repo}
+          placeholder="Database"
+          autocapitalize="off"
+          autocorrect="off"
+          onInput={(e) => setRepo((e.target as HTMLInputElement).value)}
         />
 
         <label class="mono">Token（fine-grained PAT）</label>
