@@ -53,7 +53,7 @@ export function Connection({ initial, onConnected }: Props) {
       <h1 class="page">连接设置</h1>
       <p class="hint">
         填一次 GitHub 用户名和一个 <b>Contents 读写</b> 令牌。它会存进本设备的共享配置，
-        同站点下的 10 个数据库 app 会<b>自动读到</b>，无需逐个再配。令牌只存这台设备的浏览器，
+        同站点下的各数据库 app 会<b>自动读到</b>，无需逐个再配。令牌只存这台设备的浏览器，
         不上传、不进任何代码仓库。
       </p>
 
