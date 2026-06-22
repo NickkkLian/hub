@@ -125,4 +125,12 @@ export const REGISTRY: AppLink[] = [
     icon: "📦",
     url: at("Storage-Tracker"),
   },
+  {
+    id: "jobtracker",
+    repo: "Job-Tracker",
+    label: "求职追踪",
+    blurb: "多地区投递 · 简历模板 · AI 工具",
+    icon: "💼",
+    url: at("Job-Tracker"),
+  },
 ];
