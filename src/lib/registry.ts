@@ -1,5 +1,6 @@
-// 门户注册表 —— 站长在 GitHub Pages 上已部署的 12 个数据库 / 工具 web app。
-// 全部在 https://nickkklian.github.io 同一 origin 下，因此与导航站共享同一份 localStorage。
+// 门户注册表 —— 站长已部署的数据库 / 工具 web app + 个人网站后台。
+// 数据库 app 全部在 https://nickkklian.github.io 同一 origin 下，与导航站共享同一份 localStorage（owner/token）。
+// 个人网站后台在 Cloudflare Pages（不同 origin，不共享令牌、有自己的登录）——仅作链接跳转。
 // 导航站不读写数据、不碰各 app 的 repo/path；只负责链接它们 + 写入共享 owner/token。
 
 export interface AppLink {
@@ -164,5 +165,15 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Multi-region apply · resume templates · AI",
     icon: "💼",
     url: at("Job-Tracker"),
+  },
+  {
+    id: "siteadmin",
+    repo: "personal-hub",
+    label: "网站后台",
+    labelEn: "Site Admin",
+    blurb: "个人网站 · 文案/字体编辑（独立登录）",
+    blurbEn: "Personal site · text & fonts editor (own login)",
+    icon: "🎛️",
+    url: "https://personal-hub-7uc.pages.dev/admin",
   },
 ];
