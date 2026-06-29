@@ -10,8 +10,18 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer" />
     <meta name="color-scheme" content="light dark" />
-    <title>Personal Hub · 数据库导航台</title>
-    <link rel="icon" href="data:," />
+    <title>NkDb · 数据库导航台</title>
+
+    <!-- PWA：可「添加到主屏幕」当本地 app 用，名 NkDb，主题色跟随网页（亮/暗） -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#15140f" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="NkDb" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
   </head>
   <body>
     <div id="app"></div>
